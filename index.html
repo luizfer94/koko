@@ -1,0 +1,50 @@
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+	var hambre="123";
+	/*if (hambre == "123" ){
+		alert('Verdadero');
+}else{
+		alert('hdp esta mal');
+}*/
+	/*while (hambre = true){  // esto hace un ciclo donde no tiene fin a menos de que se le pida.
+		hambre= confirm("Desea continuar bajo su propio risego")
+	}*/    
+	
+	var a= prompt("Dame tu numero")
+	alert(a);
+	</script>
+</head>
+<body>
+	<script type="text/javascript">
+	function suma (argument1, argument2){
+			return argument1 + argument2;
+	}
+	console.log(suma(1,2));
+	var persona= function (edad,nombre,ciudad){
+		var e=edad;
+		var n=nombre;
+		var c=ciudad;
+		this.mayorDeEdad= function (){
+				return privada();
+			}
+			function privada(){
+			if (e>=18){
+				return true;
+			}else{
+				return false;
+			}
+		}
+	}
+	var juan=new persona (21, "juan", "mexico");
+	console.log(juan.mayorDeEdad());
+		</script>
+</body>
+</html>
+/*alert // Despliega un mensaje (imprime el textorequerido)*/
+/*confirm //confirma una acción dada*/
+/*prompt	//Imprime un mensaje dado y despliega un campo para que el usuario escriba, lo que el usuario entre, puede grabarse.*/
+/*function// Crea una funcion o metodo*/
+/*Console.log // imprime en consola*/
+/*function privada()// hace una funcion privada para hacerla dificil que entre de otra funcion*/
