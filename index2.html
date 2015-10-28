@@ -3,6 +3,10 @@
 	<title></title>
 </head>
 <body>
+	<form>
+		<input type ="text" id="Busqueda"/>
+		<input type ="button" id="Buscar" value="Busqueda"/>
+	</form>	
 	<from>
 		Nombre:
 		<input type="text" id ="nombre"/>
@@ -15,5 +19,77 @@
 		<br>
 		<input type="button" id="agregar" value="Agregar">
 	</from>
+	<table id='tabla' border=1>
+		<tr>
+			<td>
+				Nombre
+			</td>
+			<td>
+				Edad
+			</td>
+			<td>
+				Ciudad
+			</td>
+		</tr>
+	</table>
+	<script type="text/javascript">
+		
+		var Usuarios = new Array();
+
+		document.getElementById('agregar').onclick=function(){
+			//alert("Listooo!!!!");
+			var nombre= document.getElementById('nombre').value;
+			var edad = document.getElementById('edad').value;
+			var ciudad= document.getElementById('ciudad').value;
+			//console.log(nombre);
+			//console.log(edad);
+			//console.log(ciudad);
+			var tabla = document.getElementById('tabla');
+			if(nombre && edad && ciudad){
+				//alert("Formulario valido");
+				var contenidoTabla = tabla.innerHTML;
+				tabla.innerHTML = contenidoTabla +"<tr><td>"+nombre+"</td><td>"+edad+"</td><td>"+ciudad+"</td></tr>";
+				
+				Usuarios.push(new persona(edad,nombre,ciudad));
+
+				document. getElementById('nombre').value="";
+				document. getElementById('edad').value="";
+				document. getElementById('ciudad').value="";
+				}else{
+					//alert("Formulario no Valido");
+					if(!nombre){
+						alert("Nombre Vacio");
+					}
+					if (!edad){ 
+						alert("Edad Vacio");
+					}
+					if (!ciudad){ 
+						alert("Ciudad Vacio");
+					}
+			}
+		}
+		document.getElementById('Buscar').onclick=function(){
+			var busqueda= document.getElementById('Busqueda').value;
+			var encontrado;
+			for (var i = 0; i < Usuarios.length; i++) {
+				if(Usuarios[i].n == busqueda){
+					alert("Nombre: "+Usuarios[i].n+"\n Edad: "+Usuarios[i].e+"\n Ciudad: "+Usuarios[i].c);
+					encontrado=true;
+					break;
+					}
+				}
+			if(!encontrado){
+				alert("Persona no encontrada.");
+			}
+		}
+		var persona= function (edad,nombre,ciudad){
+			this.e=edad;
+			this.n=nombre;
+			this.c=ciudad;
+		}
+	</script>
 </body>
 </html>
+<br>
+<br>
+//Para obtener mas info sobre eventos, www.w3schools.com, HTML DOM Events
